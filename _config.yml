@@ -5,7 +5,7 @@ description: >- # site description
 lang: es-CR # default lang
 timezone: America/Costa_Rica # set your timezone
 image: assets/img/ogp.png # This image used for Open Graph more info https://ogp.me/
-repo: https://github.com/barrantesgerman/barrantesgerman.github.io # site repo [optional]
+repo: https://github.com/barrantesgerman/blog # site repo [optional]
 mode: light # default theme "dark" | "light"
 
 # Profile settings
@@ -21,7 +21,7 @@ author:
   avatar: /assets/img/avatar.jpg # change with your own avatar
 
 # URL settings
-url: "https://www.hermanbarrantes.dev/" #
+url: "https://hermanbarrantes.vercel.app/" #
 baseurl:
 permalink: /:title/
 google_analytics: # leave it blank if not wish
