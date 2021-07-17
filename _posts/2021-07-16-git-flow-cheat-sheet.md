@@ -78,3 +78,15 @@ $ git flow hotfix finish <version>
 ```
 
 Termina un **hotfix**, el **hotfix** se fusiona en **develop** y **master**. se crea un **tag** en **master** con la `<version>`.
+
+## Resumen de Comandos
+
+{% mermaid %}
+graph LR;
+    GF[git flow] --> SP1((_));
+    SP1 --> IN[init] & FE[feature] & RE[release] & HF[hotfix];
+    FE & RE & HF --> SP2((_));
+    SP2 --> ST[start] & FI[finish] & PB[publish] & PL[pull];
+    ST & FI & PB & PL --> SP3((_));
+    SP3 --> NM([name]);
+{% endmermaid %}
