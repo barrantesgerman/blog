@@ -64,6 +64,8 @@ number_of_posts: 5
 # theme: klise
 sass:
   style: compressed
+mermaid:
+  src: '/assets/js/mermaid.min.js'
 
 include:
   - _redirects
@@ -88,3 +90,4 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-postfiles
+  - jekyll-mermaid
