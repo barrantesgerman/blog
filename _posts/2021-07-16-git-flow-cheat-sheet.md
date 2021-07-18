@@ -81,12 +81,15 @@ Termina un **hotfix**, el **hotfix** se fusiona en **develop** y **master**. se 
 
 ## Resumen de Comandos
 
+<pre class="highlight">
 {% mermaid %}
-graph LR;
-    GF[git flow] --> SP1((_));
-    SP1 --> IN[init] & FE[feature] & RE[release] & HF[hotfix];
-    FE & RE & HF --> SP2((_));
-    SP2 --> ST[start] & FI[finish] & PB[publish] & PL[pull];
-    ST & FI & PB & PL --> SP3((_));
-    SP3 --> NM([name]);
+%%{init: {'theme':'dark'}}%%
+graph LR
+    GF[git flow] --> SP1((_))
+    SP1 --> IN[init] & FE[feature] & RE[release] & HF[hotfix]
+    FE & RE & HF --> SP2((_))
+    SP2 --> ST[start] & FI[finish] & PB[publish] & PL[pull]
+    ST & FI & PB & PL --> SP3((_))
+    SP3 --> NM([name])
 {% endmermaid %}
+</pre>
