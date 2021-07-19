@@ -1,61 +1,43 @@
-# Klisé
+# Blog
 
-Klisé is minimalist Jekyll theme for running a personal site and blog running on Jekyll.<br>
-For demo <a href="https://klise.now.sh" target="_blank" rel="noopener">klise.now.sh</a>
+Blog Personal de [Herman Barrantes](https://www.hermanbarrantes.dev/).
 
-## Features
+## Motivación
 
-- [x] Light & Dark Mode support :waxing_crescent_moon:
-- [x] Customizable (using `.scss`)
-- [x] Responsive (desktop, tab and mobile)
-- [x] Mobile First Design
-- [x] SEO Optimized
-- [x] Images of post Organized ([`jekyll-postfiles`](https://github.com/nhoizey/jekyll-postfiles))
-- [x] Generate Sitemap ([`jekyll-sitemap`](https://github.com/jekyll/jekyll-sitemap))
-- [x] RSS Feed ([`jekyll-feed`](https://github.com/jekyll/jekyll-feed))
-- [x] Syntax Highlighter ([`rouge`](https://github.com/rouge-ruby/rouge))
-- [x] Next & Previous Post
-- [x] Comment layout, enable in frontmatter if you wish
-- [x] Google analytics
-- [x] HTML Minify ([`jekyll-compress-html`](https://github.com/penibelst/jekyll-compress-html))
-- [x] W3C **Validated**
-- [x] Lighthouse and PageSpeed **Passed**
+Este blog lo creé con la idea de que sirva como un repositorio de las cosas que voy aprendiendo en el día a día de mi trabaja y que puedan ser de utilidad a más personas.
 
-![Lighthouse Result](./lighthouse.png)
+## Herramientas
 
-## Backlogs
+- Sitio estático generado con [Jekyll](https://jekyllrb.com/)
+- Desplegado en [Vercel](https://vercel.com/)
+- Plantilla del sitio basada en [jekyll-klise](https://github.com/hermanbarrantes/jekyll-klise)
+- Esquema de colores modificado en base a [Nord Theme](https://www.nordtheme.com/)
 
-- [ ] Intergrated with PhotoSwipe.
-- [ ] Add schema.org meta information.
-- [ ] Transform class selector to BEM metodology.
+## Instalación
 
-## Installation
-
-Run local server:
+Ejecutar localmente usando [Jekyll](https://jekyllrb.com/):
 
 ```bash
-$ git clone https://github.com/piharpi/jekyll-klise.git
-$ cd jekyll-klise
+$ git clone https://github.com/barrantesgerman/blog.git
+$ cd blog
 $ bundle install
 $ bundle exec jekyll serve
 ```
 
-Navigate to `localhost:4000`. You're Welcome, Fork and be Stargazer.
+Ejecutar localmente usando [Docker](https://github.com/envygeeks/jekyll-docker):
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/piharpi/jekyll-klise) [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/piharpi/jekyll-klise)
+```bash
+$ git clone https://github.com/barrantesgerman/blog.git
+$ cd blog
+$ docker run --rm -v $PWD:/srv/jekyll -p 4000:4000 -it jekyll/jekyll jekyll serve
+```
 
-## Limitation
+Navega a `localhost:4000` para probar el sitio.
 
-- Since [`jekyll-postfiles`](https://github.com/nhoizey/jekyll-postfiles#compatibility) plugin isn't supported by github pages, this cause will make your site problems, path broken or post images won't show up, you can host alternatively using likes [netlify.com](https://netlify.com), [vercel.com](https://vercel.com) or [surge.sh](https://surge.sh) services, which support 3rd party.
+## Contribuir
 
-## Contributing
+Si ve algún error tipográfico o de formato en una publicación, o si desea ayudar con cualquier otro problema o sugerencia, no dude en abrir una solicitud de extracción y solucionarlo. Por favor, lea [contribuir](./CONTRIBUTING.md) antes de hacer el PR.
 
-If you see any typos or formatting errors in a post, or want to helping reduce backlogs or any other issue that needs to be addressed, please do not hesitate to open a pull request and fix it!, please read [contributing](./CONTRIBUTING.md) before PR.
+## Licencia
 
-Yeaaa feel free to open a pull request.
-## Support
-
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W7W7MJ4X) [![saweria.co](./assets/img/saweria-button.png)](https://saweria.co/piharpi)
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
+Este proyecto es de código abierto y está disponible bajo la [Licencia MIT](LICENSE).

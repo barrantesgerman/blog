@@ -1,7 +1,8 @@
-# Become a contributor
-- Fork
-- Create new branch, representing the changes
-- Make changes, ensure it's working
-- Push your own repo 
-- Create PR, describe your changes 
-- Thank You
+# Conviértete en colaborador
+
+- Crea un `fork`.
+- Crea una nueva rama, que represente los cambios.
+- Realice los cambios, asegúrese de que estén funcionando.
+- Haga `push` a su propio repositorio.
+- Crea un `pull request`, describiendo los cambios.
+- Muchas gracias.
