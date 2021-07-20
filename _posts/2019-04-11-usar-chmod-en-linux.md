@@ -121,5 +121,3 @@ Las notaciones octales más frecuentes son:
 | 755   | `rwxr-xr-x` Usuario tiene todos los permisos, los demás solo leer y ejecutar |
 | 644   | `rw-r--r--` Usuario puede leer y escribir, los demás solo leer |
 | 600   | `rw-------` Usuario puede leer y escribir, los demás sin permisos |
-
-[![asciicast](https://asciinema.org/a/doQmFsySVkKizAjD5L9zxWa29.svg)](https://asciinema.org/a/doQmFsySVkKizAjD5L9zxWa29)
