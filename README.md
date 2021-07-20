@@ -36,7 +36,7 @@ Navega a `localhost:4000` para probar el sitio.
 
 ## Contribuir
 
-Si ve algún error tipográfico o de formato en una publicación, o si desea ayudar con cualquier otro problema o sugerencia, no dude en abrir una solicitud de extracción y solucionarlo. Por favor, lea [contribuir](./CONTRIBUTING.md) antes de hacer el PR.
+Si ve algún error tipográfico o de formato en una publicación, o si desea ayudar con cualquier otro problema o sugerencia, no dude en abrir una solicitud de extracción y solucionarlo. Por favor, lea [Conviértete en colaborador](./CONTRIBUTING.md) y [Código de Conducta](./CODE_OF_CONDUCT.md) antes de hacer el PR.
 
 ## Licencia
 
