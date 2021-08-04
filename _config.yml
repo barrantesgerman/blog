@@ -1,7 +1,8 @@
 # Site settings
 title: Herman Barrantes # site title
 description: >- # site description
-  Blog personal de Herman Barrantes sobre Java, Linux, Tecnología y Cultura Geek.
+  Blog personal de Herman Barrantes sobre desarrollo de software, 
+  sistemas operativos, tecnología y cultura geek.
 lang: es-CR # default lang
 timezone: America/Costa_Rica # set your timezone
 image: assets/img/ogp.png # This image used for Open Graph more info https://ogp.me/
@@ -12,12 +13,13 @@ mode: light # default theme "dark" | "light"
 author:
   name: Herman Barrantes # author name
   bio: >- # tell to the world
-    Desarrollador de Software
+    Ingeniero de software y arquitecto, actualmente enfocado en 
+    arquitectura de nube, tecnologías sin servidor y microservicios.
   username: barrantesgerman # general username
   github: barrantesgerman # github username
   twitter: barrantesgerman # twitter username
   facebook: hermanbarrantes # facebook username
-  email: contac@hermanbarrantes.dev # email adress
+  email: barrantesgerman@gmail.com # email adress
   avatar: /assets/img/avatar.jpg # change with your own avatar
 
 # URL settings
