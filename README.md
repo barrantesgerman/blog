@@ -4,7 +4,7 @@ Blog Personal de [Herman Barrantes](https://www.hermanbarrantes.dev/).
 
 ## Motivación
 
-Este blog lo creé con la idea de que sirva como un repositorio de las cosas que voy aprendiendo en el día a día de mi trabaja y que puedan ser de utilidad a más personas.
+El objetivo de este blog es que sirva como un repositorio de las cosas que voy aprendiendo en el día a día de mi trabajo para que tú (y el futuro yo) no tengas que aprenderlas de la manera difícil (nuevamente).
 
 ## Herramientas
 
