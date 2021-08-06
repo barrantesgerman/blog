@@ -5,79 +5,47 @@ date: 2021-07-16 12:57:00 -0600
 categories: desarrollo
 ---
 
+## Instalación
+
+| Comando                         | Sistema Operativo   |
+| ------------------------------- | ------------------- |
+| `yay -S gitflow-avh`            | Archlinux o Manjaro |
+| `sudo apt-get install git-flow` | Ubunto o Debian     |
+| `sudo dnf install gitflow`      | Fedora              |
+| `brew install git-flow`         | Mac OS X            |
+
+Otros ejemplos de [Instalación](https://github.com/nvie/gitflow/wiki/Installation).
+
 ## Inicializar Git Flow
 
-```bash
-$ git flow init
-```
-
-Inicializa un repositorio de `git` existente para usar [git flow](https://danielkummer.github.io/git-flow-cheatsheet/).
+| Comando         | Descripción                                                  |
+| --------------- | ------------------------------------------------------------ |
+| `git flow init` | Inicializa un repositorio de `git` existente para usar [git flow](https://danielkummer.github.io/git-flow-cheatsheet/). |
 
 ## Trabajar una funcionalidad (feature)
 
-```bash
-$ git flow feature start <feature>
-```
-
-Empezar a desarrollar una nueva **feature**. Crea una nueva rama basada en **develop**.
-
-```bash
-$ git flow feature finish <feature>
-```
-
-Finaliza el desarrollo de una **feature**, la **feature** se fusiona en **develop**, se elimina la rama **feature** y cambia hacia la rama **develop**.
-
-```bash
-$ git flow feature publish <feature>
-```
-
-Publica una **feature** en el servidor remoto para que otros también puedan trabajar en ella.
-
-```bash
-$ git flow feature pull <remote> <feature>
-```
-
-Obtiene una **feature** publicada en su máquina local.
-
-```bash
-$ git flow feature track <feature>
-```
-
-Sigue una **feature** en **origin**. 
+| Comando                                    | Descripción                                                  |
+| ------------------------------------------ | ------------------------------------------------------------ |
+| `git flow feature start <feature>`         | Empezar a desarrollar una nueva **feature**. Crea una nueva rama basada en **develop**. |
+| `git flow feature finish <feature>`        | Finaliza el desarrollo de una **feature**, la **feature** se fusiona en **develop**, se elimina la rama **feature** y cambia hacia la rama **develop**. |
+| `git flow feature publish <feature>`       | Publica una **feature** en el servidor remoto para que otros también puedan trabajar en ella. |
+| `git flow feature pull <remote> <feature>` | Obtiene una **feature** publicada en su máquina local.       |
+| `git flow feature track <feature>`         | Sigue una **feature** en **origin**.                         |
 
 ## Hacer un lanzamiento (release)
 
-```bash
-$ git flow release start <version>
-```
-
-Inicia una rama de **release**. Crea una nueva rama basada en **develop**. 
-
-```bash
-$ git flow release publish <version>
-```
-
-Publica un **release** en el servidor remoto para que otros puedan verla.
-
-```bash
-$ git flow release finish <version>
-```
-
-Termina el desarrollo de un **release**, el **release** se fusiona en **master**, se crea un **tag** en **master** con la `<version>`, el **master** se fusiona en **develop** y se elimina la rama **release**, finalmente cambia hacia la rama **develop**.
+| Comando                              | Descripción                                                  |
+| ------------------------------------ | ------------------------------------------------------------ |
+| `git flow release start <version>`   | Inicia una rama de **release**. Crea una nueva rama basada en **develop**. |
+| `git flow release publish <version>` | Publica un **release** en el servidor remoto para que otros puedan verla. |
+| `git flow release finish <version>`  | Termina el desarrollo de un **release**, el **release** se fusiona en **master**, se crea un **tag** en **master** con la `<version>`, el **master** se fusiona en **develop** y se elimina la rama **release**, finalmente cambia hacia la rama **develop**. |
 
 ## Corregir incidencias (hotfix)
 
-```bash
-$ git flow hotfix start <version>
-```
-
-Inicia una nueva rama de **hotfix**. Crea una nueva rama basada en **master**.
-
-```bash
-$ git flow hotfix finish <version>
-```
-
-Termina un **hotfix**, el **hotfix** se fusiona en **develop** y **master**. se crea un **tag** en **master** con la `<version>`.
+| Comando                            | Descripción                                                  |
+| ---------------------------------- | ------------------------------------------------------------ |
+| `git flow hotfix start <version>`  | Inicia una nueva rama de **hotfix**. Crea una nueva rama basada en **master**. |
+| `git flow hotfix finish <version>` | Termina un **hotfix**, el **hotfix** se fusiona en **develop** y **master**. se crea un **tag** en **master** con la `<version>`. |
 
 ## Resumen de Comandos
 
