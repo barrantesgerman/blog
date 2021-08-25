@@ -5,79 +5,171 @@ date: 2021-07-16 12:57:00 -0600
 categories: desarrollo
 ---
 
+## Instalación
+
+| Comando                         | Sistema Operativo   |
+| ------------------------------- | ------------------- |
+| `yay -S gitflow-avh`            | Archlinux o Manjaro |
+| `sudo apt-get install git-flow` | Ubunto o Debian     |
+| `sudo dnf install gitflow`      | Fedora              |
+| `brew install git-flow`         | Mac OS X            |
+
+Otros ejemplos de [Instalación](https://github.com/nvie/gitflow/wiki/Installation).
+
 ## Inicializar Git Flow
 
-```bash
-$ git flow init
+```shell
+$ git flow init [-fd]
 ```
 
-Inicializa un repositorio de `git` existente para usar [git flow](https://danielkummer.github.io/git-flow-cheatsheet/).
+Inicializar un repositorio de *git* existente para usar [git flow](https://danielkummer.github.io/git-flow-cheatsheet/).
+
+- `-d` Usar nombres de ramas predeterminados
+- `-f` Forzar
 
 ## Trabajar una funcionalidad (feature)
 
-```bash
-$ git flow feature start <feature>
+```shell
+$ git flow feature [list] [-v]
 ```
 
-Empezar a desarrollar una nueva **feature**. Crea una nueva rama basada en **develop**.
+Listar las funcionalidades existentes.
 
-```bash
-$ git flow feature finish <feature>
+- `-v` Salida (más) detallada
+
+```shell
+$ git flow feature start [-F] <name> [<base>]
 ```
 
-Finaliza el desarrollo de una **feature**, la **feature** se fusiona en **develop**, se elimina la rama **feature** y cambia hacia la rama **develop**.
+Empezar a desarrollar una nueva funcionalidad llamada *name*. Crea una nueva rama basada en *develop*, opcionalmente se puede crear basada en *base*.
 
-```bash
-$ git flow feature publish <feature>
+- `-F` *fetch* desde *$ORIGIN* antes de realizar la operación localmente
+
+```shell
+$ git flow feature finish [-rFkDS] <name|nameprefix>
 ```
 
-Publica una **feature** en el servidor remoto para que otros también puedan trabajar en ella.
+Finalizar el desarrollo de la funcionalidad *name*, la rama *name* se fusiona en *develop*, se elimina la rama *name* y cambia hacia la rama *develop*.
 
-```bash
-$ git flow feature pull <remote> <feature>
+- `-r` *rebase* en lugar de *merge*
+- `-F` *fetch* desde *$ORIGIN* antes de finalizar
+- `-k` Mantener la rama *name* después de finalizar
+- `-D` Forzar la eliminación de la rama después de finalizar 
+- `-S` Realizar *squash* en el *merge*
+
+```shell
+$ git flow feature publish <name>
 ```
 
-Obtiene una **feature** publicada en su máquina local.
+Publicar la funcionalidad *name* en el *$ORIGIN* para que otros también puedan trabajar en ella.
 
-```bash
-$ git flow feature track <feature>
+```shell
+$ git flow feature pull <remote> [<name>]
 ```
 
-Sigue una **feature** en **origin**. 
+Obtener la funcionalidad *name* publicada en *remote*.
+
+```shell
+$ git flow feature track <name>
+```
+
+Seguir la funcionalidad *name* desde *$ORIGIN*. 
+
+```shell
+$ git flow feature diff [<name|nameprefix>]
+```
+
+Mostrar todos los cambios en *name* que no están en *develop*.
+
+```shell
+$ git flow feature rebase [-i] [<name|nameprefix>]
+```
+
+Realizar *rebase* de *name* en *develop*.
+
+- `-i` Realizar un *rebase* interactivo
+
+```shell
+$ git flow feature checkout [<name|nameprefix>]
+```
+
+Cambiar a la rama *name*.
 
 ## Hacer un lanzamiento (release)
 
-```bash
-$ git flow release start <version>
+```shell
+$ git flow release [list] [-v]
 ```
 
-Inicia una rama de **release**. Crea una nueva rama basada en **develop**. 
+Listar los lanzamientos existentes.
 
-```bash
-$ git flow release publish <version>
+- `-v` Salida (más) detallada
+
+```shell
+$ git flow release start [-F] <version>
 ```
 
-Publica un **release** en el servidor remoto para que otros puedan verla.
+Iniciar una nueva rama de lanzamiento llamada *version*. Crea una nueva rama basada en *develop*. 
 
-```bash
-$ git flow release finish <version>
+- `-F` *fetch* desde *$ORIGIN* antes de realizar la operación localmente
+
+```shell
+$ git flow release publish <name>
 ```
 
-Termina el desarrollo de un **release**, el **release** se fusiona en **master**, se crea un **tag** en **master** con la `<version>`, el **master** se fusiona en **develop** y se elimina la rama **release**, finalmente cambia hacia la rama **develop**.
+Publicar el lanzamiento *name* en el *$ORIGIN* para que otros puedan verla.
+
+```shell
+$ git flow release finish [-Fsumpkn] <version>
+```
+
+Terminar el desarrollo del lanzamiento *version*, la rama *version* se fusiona en *master*, se crea un *tag* en *master* llamado *version*, el *master* se fusiona en *develop* y se elimina la rama *version*, finalmente cambia hacia la rama *develop*.
+
+- `-F` *fetch* desde *$ORIGIN* antes de finalizar
+- `-s` Firmar la etiqueta *version* criptográficamente
+- `-u` Usar la clave GPG dada para la firma digital (implica `-s`)
+- `-m` Usar el mensaje de etiqueta dado
+- `-p` *push* a *$ORIGIN* después de finalizar
+- `-k` Mantener la rama *version* después de finalizar
+- `-n` No etiquetar este lanzamiento
+
+```shell
+$ git flow release track <name>
+```
+
+Seguir el lanzamiento *name* desde *$ORIGIN*. 
 
 ## Corregir incidencias (hotfix)
 
-```bash
-$ git flow hotfix start <version>
+```shell
+$ git flow hotfix [list] [-v]
 ```
 
-Inicia una nueva rama de **hotfix**. Crea una nueva rama basada en **master**.
+Listar las incidencias existentes.
 
-```bash
-$ git flow hotfix finish <version>
+- `-v` Salida (más) detallada
+
+```shell
+$ git flow hotfix start [-F] <version> [<base>]
 ```
 
-Termina un **hotfix**, el **hotfix** se fusiona en **develop** y **master**. se crea un **tag** en **master** con la `<version>`.
+Iniciar una nueva rama de incidencia llamada *version*. Crea una nueva rama basada en *master*, opcionalmente se puede crear basada en *base*.
+
+- `-F` *fetch* desde *$ORIGIN* antes de realizar la operación localmente
+
+```shell
+$ git flow hotfix finish [-Fsumpkn] <version>
+```
+
+Terminar la incidencia *version*, la rama *version* se fusiona en *develop* y *master*, se crea un *tag* en *master* llamado *version*.
+
+- `-F` *fetch* desde *$ORIGIN* antes de finalizar
+- `-s` Firmar la etiqueta *version* criptográficamente
+- `-u` Usar la clave GPG dada para la firma digital (implica `-s`)
+- `-m` Usar el mensaje de etiqueta dado
+- `-p` *push* a *$ORIGIN* después de finalizar
+- `-k` Mantener la rama *version* después de finalizar
+- `-n` No etiquetar este lanzamiento
 
 ## Resumen de Comandos
 
@@ -89,7 +181,12 @@ graph LR
     SP1 --> IN[init] & FE[feature] & RE[release] & HF[hotfix]
     FE & RE & HF --> SP2((_))
     SP2 --> ST[start] & FI[finish] & PB[publish] & PL[pull]
-    ST & FI & PB & PL --> SP3((_))
+    ST & FI & PB --> SP3((_))
     SP3 --> NM([name])
+    PL --> SP4((_))
+    SP4 --> RT([remote])
+    RT --> SP5((_))
+    SP5 --> NM
 {% endmermaid %}
 </pre>
+
