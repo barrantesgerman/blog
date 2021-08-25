@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Git Flow Cheat Sheet"
+title: "Comandos de Git Flow"
 date: 2021-07-16 12:57:00 -0600
 categories: desarrollo
 ---
