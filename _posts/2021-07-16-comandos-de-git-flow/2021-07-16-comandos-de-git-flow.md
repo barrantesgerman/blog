@@ -173,20 +173,5 @@ Terminar la incidencia *version*, la rama *version* se fusiona en *develop* y *m
 
 ## Resumen de Comandos
 
-<pre class="highlight">
-{% mermaid %}
-%%{init: {'theme':'dark'}}%%
-graph LR
-    GF[git flow] --> SP1((_))
-    SP1 --> IN[init] & FE[feature] & RE[release] & HF[hotfix]
-    FE & RE & HF --> SP2((_))
-    SP2 --> ST[start] & FI[finish] & PB[publish] & PL[pull]
-    ST & FI & PB --> SP3((_))
-    SP3 --> NM([name])
-    PL --> SP4((_))
-    SP4 --> RT([remote])
-    RT --> SP5((_))
-    SP5 --> NM
-{% endmermaid %}
-</pre>
+![Comandos](comandos.png)
 
