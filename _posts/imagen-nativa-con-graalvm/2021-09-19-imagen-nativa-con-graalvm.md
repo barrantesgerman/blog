@@ -140,7 +140,7 @@ java.lang.IllegalStateException: java.lang.NoSuchMethodException: no such method
 ...
 ```
 
-El error que obtenemos es debido a que GraalVM al generar la imagen nativa, realiza un análisis estático del código. Sin embargo, este análisis tiene algunas limitaciones a la fecha y es incapaz de predecir todos los usos de la interfaz nativa de Java ([JNI](https://docs.oracle.com/en/java/javase/11/docs/specs/jni/intro.html)), el uso de [Reflection](https://www.oracle.com/technical-resources/articles/java/javareflection.html), los proxy dinámicos (`java.lang.reflect.Proxy`) o los recursos en el class path (`Class.getResource`).
+El error que obtenemos es debido a que GraalVM al generar la imagen nativa, realiza un análisis estático del código. Sin embargo, este análisis tiene algunas [limitaciones](https://www.graalvm.org/reference-manual/native-image/Limitations/) a la fecha y es incapaz de predecir todos los usos de la interfaz nativa de Java ([JNI](https://docs.oracle.com/en/java/javase/11/docs/specs/jni/intro.html)), el uso de [Reflection](https://www.oracle.com/technical-resources/articles/java/javareflection.html), los proxy dinámicos (`java.lang.reflect.Proxy`) o los recursos en el class path (`Class.getResource`).
 
 Los usos no detectados de estas características dinámicas deben proporcionarse a la herramienta de `native-image` en forma de archivos de configuración en formato JSON, preferiblemente dentro de la carpeta `META-INF/native-image` en los recursos del proyecto.
 
@@ -167,23 +167,7 @@ $ native-image \
   --no-fallback \
   --initialize-at-build-time=org.eclipse.jetty,org.slf4j,javax.servlet,org.sparkjava \
   -jar build/libs/graalvm-sample-rest-service-1.0.0-all.jar
-[graalvm-sample-rest-service-1.0.0-all:25276]    classlist:   1,414.79 ms,  0.96 GB
-[graalvm-sample-rest-service-1.0.0-all:25276]        (cap):     569.28 ms,  0.96 GB
-[graalvm-sample-rest-service-1.0.0-all:25276]        setup:   2,106.27 ms,  0.96 GB
-[ForkJoinPool-2-worker-7] INFO org.eclipse.jetty.util.log - Logging initialized @11914ms to org.eclipse.jetty.util.log.Slf4jLog
-[graalvm-sample-rest-service-1.0.0-all:25276]     (clinit):     369.62 ms,  3.77 GB
-[graalvm-sample-rest-service-1.0.0-all:25276]   (typeflow):  11,851.15 ms,  3.77 GB
-[graalvm-sample-rest-service-1.0.0-all:25276]    (objects):  14,694.05 ms,  3.77 GB
-[graalvm-sample-rest-service-1.0.0-all:25276]   (features):     937.61 ms,  3.77 GB
-[graalvm-sample-rest-service-1.0.0-all:25276]     analysis:  28,633.32 ms,  3.77 GB
-[graalvm-sample-rest-service-1.0.0-all:25276]     universe:   1,958.40 ms,  3.77 GB
-[graalvm-sample-rest-service-1.0.0-all:25276]      (parse):   1,934.04 ms,  3.79 GB
-[graalvm-sample-rest-service-1.0.0-all:25276]     (inline):   2,966.97 ms,  3.83 GB
-[graalvm-sample-rest-service-1.0.0-all:25276]    (compile):  27,998.57 ms,  4.34 GB
-[graalvm-sample-rest-service-1.0.0-all:25276]      compile:  34,444.06 ms,  4.34 GB
-[graalvm-sample-rest-service-1.0.0-all:25276]        image:   3,869.79 ms,  4.32 GB
-[graalvm-sample-rest-service-1.0.0-all:25276]        write:     736.48 ms,  4.32 GB
-[graalvm-sample-rest-service-1.0.0-all:25276]      [total]:  73,406.30 ms,  4.32 GB
+...
 ```
 
 Procedemos a la ejecución de la imagen nativa:
