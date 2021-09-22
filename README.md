@@ -10,7 +10,7 @@ El objetivo de este blog es que sirva como un repositorio de las cosas que voy a
 
 - Sitio estático generado con [Jekyll](https://jekyllrb.com/)
 - Desplegado en [Vercel](https://vercel.com/)
-- Plantilla del sitio basada en [jekyll-klise](https://github.com/hermanbarrantes/jekyll-klise)
+- Plantilla del sitio basada en [jekyll-klise](https://github.com/piharpi/jekyll-klise)
 - Esquema de colores modificado en base a [Nord Theme](https://www.nordtheme.com/)
 
 ## Instalación
