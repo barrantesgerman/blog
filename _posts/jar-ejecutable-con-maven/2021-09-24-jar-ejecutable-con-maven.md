@@ -70,6 +70,7 @@ Class-Path: libs/slf4j-log4j12-1.7.30.jar libs/slf4j-api-1.7.30.jar libs/log4j-1
 Build-Jdk-Spec: 11
 Created-By: Maven Jar Plugin 3.2.0
 Main-Class: com.example.executable.Main
+
 ```
 
 Se deben copiar todas las dependencias en una carpeta llamada *libs* junto al archivo JAR.
