@@ -32,7 +32,7 @@ $ java -jar example.jar
 no hay ningún atributo de manifiesto principal en example.jar
 ```
 
-Para poder ejecutarlo con doble clic o `java -jar nombre-archivo-jar` se debe incluir dentro del JAR el archivo de manifiesto, localizado dentro del JAR en `META-INF/MANIFEST.MF` y en su contenido el atributo `Main-Class` indicar el nombre de la clase principal que se debe ejecutar.
+Para poder ejecutarlo con doble clic o `java -jar nombre-archivo-jar` se debe incluir dentro del JAR el archivo de manifiesto, localizado en `META-INF/MANIFEST.MF` y en su contenido el atributo `Main-Class` indicar el nombre de la clase principal que se debe ejecutar.
 
 > **NOTA:** El archivo `META-INF/MANIFEST.MF` tiene que terminar con una línea en blanco para que sea correctamente interpretado por Java.
 
