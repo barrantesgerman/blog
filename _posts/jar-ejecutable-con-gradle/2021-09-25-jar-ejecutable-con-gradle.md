@@ -42,7 +42,7 @@ Por ejemplo, si agregamos dependencias a [SLF4J](http://www.slf4j.org/) con [Log
 
 ```gradle
 dependencies {
-    implementation 'org.slf4j:slf4j-simple:1.7.25'
+    implementation 'org.slf4j:slf4j-log4j12:1.7.30'
 }
 ```
 
@@ -75,59 +75,68 @@ Ya con esto podemos ejecutar la aplicación dando doble clic en ella o ejecutand
 
 ## Copiando Dependencias
 
-[Maven](https://maven.apache.org/) cuenta con plugins que nos facilitan la tarea de crear el archivo de manifiesto y copiar las dependencias.
+[Gradle](https://gradle.org/) cuenta con un plugin llamado [Gradle Distribution Plugin](https://docs.gradle.org/current/userguide/distribution_plugin.html), que nos crea al momento de compilar un empaquetado para distribución, el mismo lo podemos localizar en `build/distributions` (tanto en `.zip` como `.tar`), dentro del archivo comprimido se encuentran todas las dependencias en la carpeta `lib` y scripts para ejecutar en Windows/Linux en la carpeta `bin`.
 
-Con `maven-jar-plugin` podemos indicar la clase principal en el atributo `mainClass` y el nombre de la carpeta de dependencias en el atributo `classpathPrefix`.
-
-```xml
-<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-jar-plugin</artifactId>
-    <version>3.2.0</version>
-    <configuration>
-        <archive>
-            <manifest>
-                <addClasspath>true</addClasspath>
-                <classpathPrefix>libs/</classpathPrefix>
-                <mainClass>com.example.executable.Main</mainClass>
-            </manifest>
-        </archive>
-    </configuration>
-</plugin>
+```
+example.zip
+├── bin
+│   ├── example
+│   └── example.bat
+└── lib
+    ├── example.jar
+    ├── log4j-1.2.17.jar
+    ├── slf4j-api-1.7.30.jar
+    └── slf4j-log4j12-1.7.30.jar
 ```
 
-Por su parte, el plugin `maven-dependency-plugin` nos ayuda a copiar todas las dependencias del proyecto en la carpeta indicada.
+Con [Gradle Java Plugin](https://docs.gradle.org/7.2/userguide/java_plugin.html) podemos indicar en la tarea `jar` los atributos de archivo de manifiesto, por ejemplo el atributo `Main-Class`:
 
-```xml
-<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-dependency-plugin</artifactId>
-    <version>3.2.0</version>
-    <executions>
-        <execution>
-            <id>copy-dependencies</id>
-            <phase>prepare-package</phase>
-            <goals>
-                <goal>copy-dependencies</goal>
-            </goals>
-            <configuration>
-                <outputDirectory>
-                    ${project.build.directory}/libs
-                </outputDirectory>
-            </configuration>
-        </execution>
-    </executions>
-</plugin>
+```gradle
+plugins {
+    id 'java'
+}
+
+jar {
+    manifest {
+        attributes(
+            'Main-Class': 'com.example.executable.Main'
+        )
+    }
+}
 ```
 
+Por su parte, si requerimos copiar las dependencias ocupamos crear una tarea para ello, adicionalmente se debe agregar el atributo `Class-Path` en el archivo de manifiesto con las dependencias separadas por espacio.
 
-## Generar un FatJar con Plugin
+```gradle
+plugins {
+    id 'java'
+}
+
+task copyToLib(type: Copy) {
+    into "${buildDir}/libs/libs"
+    from configurations.runtimeClasspath
+}
+
+jar {
+    manifest {
+        attributes(
+            'Main-Class': 'com.example.executable.Main',
+            "Class-Path":  configurations.runtimeClasspath.collect { 'libs/' + it.name }.join(' ') 
+        )
+    }
+    dependsOn(copyToLib)
+}
+```
+
+En el ejemplo anterior la tarea `copyToLib` se encarga de copiar las dependencias en la carpeta *libs* y en la tarea `jar` indicamos que dependen de `copyToLib`, adicionalmente actualizamos en el archivo de manifiesto el atributo `Class-Path`.
+
+## Generar un FatJar
 
 Un **FatJar** (también conocido como **UberJar**) es un archivo JAR que contiene no solo sus clases, sino que también contiene dentro de él mismo todas sus dependencias. Su ventaja consiste en ser un único archivo (.jar) para distribuir la aplicación (no se requiere copiar la carpeta *libs* como en el caso anterior).
 
 Existen varias formas en Gradle para generar un FatJar.
 
-### Usando el plugin de java
+### Usando el plugin de Java
 
 Se debe contar con el plugin `java` y agregar la siguiente configuración en la tarea `jar` del proyecto:
 
@@ -193,10 +202,12 @@ Con este [plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.sha
 
 ## Documentación de los Plugins
 
+* [Gradle Java Plugin](https://docs.gradle.org/7.2/userguide/java_plugin.html)
+* [Gradle Distribution Plugin](https://docs.gradle.org/7.2/userguide/distribution_plugin.html)
 * [Gradle Shadow Plugin](https://imperceptiblethoughts.com/shadow/)
 
+## Referencia
+
 * [Gradle – Create a Jar file with dependencies](https://mkyong.com/gradle/gradle-create-a-jar-file-with-dependencies/)
-
 * [How to make a Jar file with dependencies by Gradle 7.0+?](https://stackoverflow.com/questions/59367435/how-to-make-a-jar-file-with-dependencies-by-gradle-7-0)
-
 * [Creating a Fat Jar in Gradle](https://www.baeldung.com/gradle-fat-jar)
