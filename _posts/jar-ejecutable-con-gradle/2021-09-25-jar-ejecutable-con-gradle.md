@@ -174,7 +174,7 @@ task fatJar(type: Jar) {
             'Main-Class': 'com.example.executable.Main'
         )
     }
-    baseName = project.name + '-all'
+    archiveBaseName = project.name + '-all'
     from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
