@@ -222,3 +222,7 @@ Se debe agregar el siguiente plugin al proyecto:
 * [Apache Maven Assembly Plugin](https://maven.apache.org/plugins/maven-assembly-plugin/)
 * [Apache Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin/)
 * [Onejar Maven Plugin](https://github.com/jolira/onejar-maven-plugin)
+
+## Referencia
+
+* [How to Create an Executable JAR with Maven](https://www.baeldung.com/executable-jar-with-maven)
