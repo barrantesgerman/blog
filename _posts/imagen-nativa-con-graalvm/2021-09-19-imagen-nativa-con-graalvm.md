@@ -20,8 +20,6 @@ Para estas nuevas arquitecturas es indispensable el desarrollo de aplicaciones q
 
 Para comprender mejor los beneficios que nos provee la creación de estas imágenes nativas vamos a crear dos imagenes de [Docker](https://www.docker.com/) con un microservicio muy simple, la primera versión se ejecutará sobre  JRE 11 de Java y la segunda versión será con [imagen nativa][ref5], para posteriormente compararlas.
 
-El código fuente del microservicio se puede descargar desde [Github](https://github.com/barrantesgerman/graalvm-sample-rest-service).
-
 ## Instalación
 
 Lo primero a realizar, es instalar GraalVM, al día de hoy la última versión es la **21.2.0**, en el repositorio de [Github](https://github.com/graalvm/graalvm-ce-builds/releases/tag/vm-21.2.0) del proyecto se pueden bajar las diferentes versiones para [Windows](https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.2.0/graalvm-ce-java11-windows-amd64-21.2.0.zip), [Linux](https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.2.0/graalvm-ce-java11-linux-amd64-21.2.0.tar.gz) y [MacOS](https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.2.0/graalvm-ce-java11-darwin-amd64-21.2.0.tar.gz). En el caso de Linux/MacOS se puede utilizar [SDKMAN](https://sdkman.io/) para facilitar está tarea, ejecutando:
@@ -240,6 +238,10 @@ La imágenes nativas son ideales para aplicaciones que requieran una gran capaci
 La disminución del tamaño de la imagen de docker también es significativa, muy a pesar que el JAR con sus dependencias pesa solo 4,6MB, al momento de crear la imagen del contenedor con JRE se usa como base `openjdk:11-jre-slim-buster` la cual le suma 221MB del sistema operativo más la instalación del JRE para correr el JAR. Por su parte la imagen nativa pesa 33MB pero cuenta con todo lo necesario para ejecutarse por si misma, por lo que se puede usar como base la imagen `scratch` para el contenedor de docker que prácticamente no le suma nada al peso final.
 
 Por otra parte, en esta publicación realizamos un servicio web con [Spark](https://sparkjava.com/), que no cuenta con integración "**Out-of-the-Box**" con GraalVM con el propósito de ver las [limitaciones](https://www.graalvm.org/reference-manual/native-image/Limitations/) y como tratar con ellas. Pero en el caso particular de Java, es muy común la utilización de frameworks para el desarrollo de microservicios como lo son [Spring Boot](https://spring.io/projects/spring-boot), [Micronaut](https://micronaut.io/), [Quarkus](https://quarkus.io/) o [Helidon](https://helidon.io/), que nos facilitan la integración con GraalVM y nos ahorran en la mayoría de los casos mucho tiempo y trabajo, ya que se encargan por nosotros de indicarle a la herramienta de `native-image` como realizar la compilación y como resolver las características dinámicas (JNI, Reflection, Dynamic Proxy, Class Path Resources) que son usadas por el framework y por las librerías de terceros con las que se integran.
+
+## Código Fuente
+
+📦 [graalvm-sample-rest-service](https://github.com/barrantesgerman/graalvm-sample-rest-service)
 
 ## Referencias
 
