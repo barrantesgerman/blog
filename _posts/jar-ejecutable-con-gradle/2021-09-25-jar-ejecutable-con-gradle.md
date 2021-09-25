@@ -138,7 +138,7 @@ Existen varias formas en Gradle para generar un FatJar.
 
 ### Usando el plugin de Java
 
-Se debe contar con el plugin `java` y agregar la siguiente configuración en la tarea `jar` del proyecto:
+Se debe contar con [Gradle Java Plugin](https://docs.gradle.org/7.2/userguide/java_plugin.html) y agregar la siguiente configuración en la tarea `jar` del proyecto:
 
 ```gradle
 plugins {
@@ -161,7 +161,7 @@ De esta forma al compilar el proyecto con `gradle build` se construirá un FatJa
 
 ### Creando una tarea propia
 
-Igual que el anterior, se debe contar con el plugin `java` y creamos una tarea propia, en este ejemplo la tarea se llama `fatJar`:
+Igual que el anterior, se debe contar con [Gradle Java Plugin](https://docs.gradle.org/7.2/userguide/java_plugin.html) y creamos una tarea propia, en este ejemplo la tarea se llama `fatJar`:
 
 ```gradle
 plugins {
