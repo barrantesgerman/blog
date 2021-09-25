@@ -21,9 +21,8 @@ public class Main {
 La manera tradicional de ejecutar esta clase principal es:
 
 ```shell
-$ java -cp nombre-archivo-jar nombre-clase-principal [argumentos]
-# ejemplo
 $ java -cp example.jar com.example.executable.Main
+Hello World
 ```
 
 Si damos doble clic o ejecutamos un `java -jar nombre-archivo-jar` obtendremos un error:
