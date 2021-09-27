@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Descargar Legalmente Máquinas Virtuales de Windows para probar Internet Explorer y Edge"
+title: "Probar Internet Explorer y Edge"
 date: 2019-03-20 09:29:20 -0600
 categories: windows
 ---
