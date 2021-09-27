@@ -36,7 +36,7 @@ Para poder ejecutarlo con doble clic o `java -jar nombre-archivo-jar` se debe in
 
 > **NOTA:** El archivo `META-INF/MANIFEST.MF` tiene que terminar con una línea en blanco para que sea correctamente interpretado por Java.
 
-Adicionalmente, el proyecto puede requerir dependencias de terceros, estas dependencias se debe agregar también el atributo `Class-Path` con la ruta de los JARs requeridos, separando cada uno con espacio, dentro del archivo de manifiesto.
+Adicionalmente, el proyecto puede requerir dependencias de terceros, estas dependencias se debe agregar también en el archivo de manifiesto, en el contenido del atributo `Class-Path` con la ruta de los JARs requeridos, separando cada uno con espacio.
 
 Por ejemplo, si agregamos dependencias a [SLF4J](http://www.slf4j.org/) con [Log4j](http://logging.apache.org/log4j/1.2/) en el [build.gradle](https://github.com/barrantesgerman/executable-jar-gradle/blob/main/example/build.gradle)
 
