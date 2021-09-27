@@ -50,6 +50,8 @@ $ mvnw.cmd clean install
 
 La primera vez que se ejecute, el script intentará usar `.mvn/wrapper/maven-wrapper.jar` para descargar [Maven](https://maven.apache.org/) en `./m2/wrapper/dists` dentro del directorio raíz del usuario, si no encuentra a `maven-wrapper.jar`, intentará usar [cURL](https://curl.se/) o [Wget](http://www.gnu.org/software/wget/) y como último recurso compilará la clase en `.mvn/wrapper/MavenWrapperDownloader.java` para realizar la descargar.
 
+Las siguientes veces usará la versión ya descargada de [Maven](https://maven.apache.org/) en `./m2/wrapper/dists`.
+
 La ruta para descargar [Maven](https://maven.apache.org/) la obtiene del archivo `.mvn/wrapper/maven-wrapper.properties` del atributo `distributionUrl`.
 
 ```properties
