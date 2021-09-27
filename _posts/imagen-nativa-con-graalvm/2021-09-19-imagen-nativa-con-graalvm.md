@@ -16,7 +16,7 @@ Para estas nuevas arquitecturas es indispensable el desarrollo de aplicaciones q
 * **Es un JDK completo**: que ha pasado todos los test de certificación ([TCK][ref2]) de Oracle, por lo que puede remplazar cualquier instalación de JDK u OpenJDK de manera transparente.
 * **Cuenta con un compilador [JIT][ref3] mejorado**: que ha mostrado un mejor desempeño que el propio compilador JIT incluido en el JDK de Oracle.
 * **Es una Máquina Virtual Políglota**: que nos permite no solo trabajar con código Java y otros basados en JVM (Groovy, Scala, Kotlin), sino también Javascript, Ruby, Python, R entre otros.
-* **Puede crear Imágenes Nativas**: mediante un compilador [AOT][ref4] para producir código nativo, que no requiere la JVM para ejecutarse. *El cual va ser el tema central de está publicación*.
+* **Puede crear Imágenes Nativas**: mediante un compilador [AOT][ref4] para producir código nativo, que no requiere la JVM para ejecutarse. *El cual va ser el tema central de esta publicación*.
 
 Para comprender mejor los beneficios que nos provee la creación de estas imágenes nativas vamos a crear dos imagenes de [Docker](https://www.docker.com/) con un microservicio muy simple, la primera versión se ejecutará sobre  JRE 11 de Java y la segunda versión será con [imagen nativa][ref5], para posteriormente compararlas.
 
@@ -150,7 +150,7 @@ java \
   -jar build/libs/graalvm-sample-rest-service-1.0.0-all.jar
 ```
 
-Para que el agente sea capaz de detectar todos los usos de características dinámicas, se deben ejecutar todos los flujos de la aplicación, en este caso realizando la petición GET a `http://localhost:4567/hello`.
+Para que el agente sea capaz de detectar todos los usos de características dinámicas, **se deben ejecutar todos los flujos de la aplicación**, en este caso realizando la petición GET a `http://localhost:4567/hello`.
 
 Procedemos a realizar la compilación nuevamente:
 
@@ -229,7 +229,7 @@ En la siguiente tabla podemos comparar los valores obtenidos del contenedor JRE 
 | ------------------- | -------------- | ------------- |
 | Tamaño de imagen    | 225MB          | 33.6MB        |
 | Velocidad de inicio | 415ms promedio | 3ms promedio  |
-| RAM usada           | 49.59MB        | 2.05MB        |
+| RAM usada           | 49,59MB        | 2,05MB        |
 
 ## Conclusiones
 
